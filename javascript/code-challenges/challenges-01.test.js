@@ -128,7 +128,7 @@ const createList = (availableItems) => {
   let finalTest =[];
   availableItems.forEach(value=>{
     if (value.available===true){
-      finalTest.push(value);
+      finalTest.push(value.name);
     }
   });
   return finalTest ;
