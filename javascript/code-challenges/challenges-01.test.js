@@ -100,10 +100,24 @@ const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
   // invoke mean for loop
   for (let i=0; i<times ;i++){
-    callback(num,arr);
+    callback(arr,num);
   }
   return arr;
 };
+/*const addValues = (arr, value) => {
+  arr.push(value);
+};
+
+const addNumbers = (num, arr, times, callback) => {
+  // let newArr5=[];
+  for (let i = 0; i < times; i++) {
+
+    callback(arr,num);
+
+  }
+  return arr;
+
+};*/
 
 /* ------------------------------------------------------------------------------------------------
 
