@@ -9,7 +9,7 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 const replaceZeros = (string) => {
   // Solution code here...
   return string.replace(/0/g, 'zero');
-};;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -21,6 +21,15 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+  if(typeof(pin) === 'number'){
+    const pin2 = pin.toString();
+    if(pin2.length === 4){
+      return /[0-9]/g.test(pin2);
+    }else{
+      return false;
+    }
+  }
+  return pin.length===4? /[0-9]/g.test(pin) : false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,6 +42,10 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+  if(typeof(word)==='number'){return false;}
+  const match = word.match(/[a-zA-Z]/g);
+  if(match.length>4&&match.length<11){return true;}
+  return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +58,8 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  const regex = /[a-zA-Z].?[0-9]/g;
+  return regex.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,6 +80,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  const regex = /^\w+\.?\w+@\w+\.(net|com|org)$/;
+  return regex.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +107,8 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  const regex = /^(\(([0-9]{3})\)[\s-]?|([0-9]{3})[\s-]?)([0-9]{3})[\s-]?([0-9]{4})$/;
+  return regex.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
