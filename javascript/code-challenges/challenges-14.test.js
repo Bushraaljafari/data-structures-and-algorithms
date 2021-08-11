@@ -25,7 +25,12 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
-  ..
+  const titleArray = [];
+  arr.map(element => {
+    const newArray = element.substr(0,1).toUpperCase() + element.substr(1);
+    titleArray.push(newArray);
+  });
+  return titleArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -101,6 +106,17 @@ let starWarsData = [{
 
 let biggerThanLuke = (arr) => {
   // Solution code here...
+  const values = arr.reduce((acc, value) => {
+    if (parseInt(value.mass) > parseInt(arr[0].mass)) {
+      if (acc) {
+        acc = acc +' - ';
+      }
+      acc = acc + value.name;
+    }
+    return acc;
+
+  }, '');
+  return values;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +135,16 @@ This data could be sorted by name or price.
 
 const sortBy = (property, arr) => {
   // Solution code here...
+  arr.sort((a, b) => {
+    if(a[property] > b[property]) {
+      return 1;
+    } else if (b[property] > a[property]) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +161,13 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
   // Solution code here...
-
+  const reg = /^https:\/\//g;
+  if (reg.test(url)) {
+    return true;
+  }
+  else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
