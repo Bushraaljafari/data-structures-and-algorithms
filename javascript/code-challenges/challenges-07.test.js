@@ -150,7 +150,11 @@ const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
 
+  for(let i=0; i<recipe.ingredients.length; i++){
 
+    let food = recipe.ingredients[i].slice(3).indexOf(' ');
+    result[i] = recipe.ingredients[i].slice(3).slice(food+1);
+  }
   return result;
 };
 
