@@ -82,6 +82,12 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
+  let newArr = [];
+  let objToArr = Object.entries(obj);
+  objToArr.forEach(item => {
+    newArr.push(item.join(': '));
+  });
+  return newArr;
 };
 
 
@@ -138,6 +144,9 @@ const characters = [
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  arr.map(item => {
+    houses.push(item.house);
+  });
   return houses;
 };
 
@@ -155,9 +164,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  for (let i = 0; i < arr.length; i++) {
+    if (Object.values(arr[i]).includes(character)) {
+      return (arr[i].children ? true : false);
+    }
+  }
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
